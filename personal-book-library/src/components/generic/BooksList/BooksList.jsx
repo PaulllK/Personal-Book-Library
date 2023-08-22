@@ -1,26 +1,21 @@
-import { useSelector } from 'react-redux';
 import BooksListItem from '../BooksListItem';
 
-function BooksList() {
-  const books = useSelector(({ books: { data, searchTerm } }) => {
-    const filteredBooks = data.filter((book) => {
-      const titleFound = book.title.toLowerCase().includes(searchTerm.toLowerCase());
-
-      if (!titleFound) {
-        return book.authors.some((author) => author.toLowerCase().includes(searchTerm.toLowerCase()));
-      } else {
-        return titleFound;
-      }
-    });
-
-    return filteredBooks;
-  });
-
-  const renderedBooks = books.map((book) => {
+function BooksList({ booksToShow }) {
+  const renderedBooks = booksToShow.map((book) => {
     return <BooksListItem key={book.id} book={book} />;
   });
 
-  return <ul className="mt-4 mx-6 sm:mx-16 md:mx-24 lg:mx-32 xl:mx-56 2xl:mx-72">{renderedBooks}</ul>;
+  return (
+    <ul className="mt-4">
+      {renderedBooks.length ? (
+        renderedBooks
+      ) : (
+        <div className="mt-8">
+          <p className="text-gray-500">No books here</p>
+        </div>
+      )}
+    </ul>
+  );
 }
 
 export default BooksList;

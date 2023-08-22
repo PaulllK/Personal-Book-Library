@@ -5,6 +5,11 @@ const booksSlice = createSlice({
   name: 'books',
   initialState: {
     data: [],
+    bookIDs: {
+      reading: [],
+      wantToRead: [],
+      finished: [],
+    },
     searchTerm: '',
     isLoading: false,
     error: null,
