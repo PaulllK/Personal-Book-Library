@@ -1,0 +1,31 @@
+{
+  "books": [
+    {
+      "id": 1,
+      "title": "Myra of gfgd",
+      "cover": "https://loremflickr.com/150/150/abstract?lock=2723075353214976",
+      "authors": [
+        "Author 1", "Author 2"
+      ],
+      "publicationYear": 2020
+    },
+    {
+      "id": 2,
+      "title": "Abcdef f gfdhdh",
+      "cover": "https://loremflickr.com/150/150/abstract?lock=2723075353214976",
+      "authors": [
+        "Author 3"
+      ],
+      "publicationYear": 2018
+    },
+    {
+      "id": 3,
+      "title": "Myrafsfsd sfsdf fsdfdsfs",
+      "cover": "htps://loremflickr.com/150/150/abstract?lock=2723075353214976",
+      "authors": [
+        "Author 13", "Author 56"
+      ],
+      "publicationYear": 2021
+    }
+  ]
+}
