@@ -18,6 +18,9 @@ const booksSlice = createSlice({
     changeSearchTerm(state, action) {
       state.searchTerm = action.payload;
     },
+    changeBookIDs(state, action) {
+      state.bookIDs = action.payload;
+    },
   },
   extraReducers(builder) {
     builder.addCase(fetchBooks.pending, (state, action) => {
@@ -34,6 +37,6 @@ const booksSlice = createSlice({
   },
 });
 
-export const { changeSearchTerm } = booksSlice.actions;
+export const { changeSearchTerm, changeBookIDs } = booksSlice.actions;
 
 export const booksReducer = booksSlice.reducer;

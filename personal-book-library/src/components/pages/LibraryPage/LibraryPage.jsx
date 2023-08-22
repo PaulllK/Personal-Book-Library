@@ -2,13 +2,13 @@ import BooksList from '../../generic/BooksList';
 import { useSelector } from 'react-redux';
 
 function LibraryPage() {
-  const bookIDs = {
-    reading: [1, 2],
-    wantToRead: [],
-    finished: [3],
-  };
+  // const bookIDs = {
+  //   reading: [1, 2],
+  //   wantToRead: [],
+  //   finished: [3],
+  // };
 
-  const { data /* bookIDs */ } = useSelector((state) => {
+  const { data, bookIDs } = useSelector((state) => {
     return state.books;
   });
 
