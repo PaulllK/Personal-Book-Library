@@ -1,17 +1,13 @@
 import { useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { changeBookIDs } from '../../../store';
+import Button from '../Button';
+import { FaBookOpen, FaCheck, FaPlay } from 'react-icons/fa';
 
 function BooksListItem({ book }) {
   const dispatch = useDispatch();
 
   const [imgSrc, setImgSrc] = useState(book.cover);
-
-  // const bookIDs = {
-  //   reading: [1, 2, 3],
-  //   wantToRead: [],
-  //   finished: [],
-  // };
 
   const { data, bookIDs } = useSelector((state) => {
     return state.books;
@@ -96,50 +92,58 @@ function BooksListItem({ book }) {
   }
 
   return (
-    <li className="flex items-center p-4 bg-white shadow-md mb-2">
+    <div className="flex flex-col sm:items-center w-full p-4 bg-white shadow-md mb-2 sm:flex-row sm:w-128">
       <img
         src={imgSrc}
         alt={book.title}
-        className="w-28 h-36 object-cover mr-4"
+        className="w-full sm:w-28 sm:h-36 object-cover sm:mr-4"
         onError={() => setImgSrc('http://via.placeholder.com/640x360')}
       />
-      <div className="flex-grow">
+      <div className="flex-grow mt-4 sm:mt-0">
         <h2 className="text-xl font-semibold">{book.title}</h2>
-        <p className="text-gray-600">
+        <p className="flex flex-col text-gray-600">
           {book.authors.join(', ')}
-          <span className="ml-2 text-gray-400">{book.publicationYear}</span>
+          <span className="text-gray-400">{book.publicationYear}</span>
         </p>
       </div>
-      <div className="flex flex-col mr-4">
+      <div className="flex flex-col mt-4 phone:max-sm:flex-row sm:mt-0">
         {bookIDs.finished.includes(book.id) ? null : (
-          <button
+          <Button
             onClick={handleAddToFinished}
-            className="bg-blue-500 text-white rounded-lg px-3 py-2 mb-2 hover:bg-blue-600"
+            className="mr-0 mb-2 phone:max-sm:mr-3 hover:bg-white hover:text-black transition"
+            variation={'secondary'}
+            rounded
           >
-            add to finished
-            {/*finish reading*/}
-          </button>
+            {/*adds to finished section*/}
+            <FaCheck className="mr-2" />
+            finish
+          </Button>
         )}
         {bookIDs.wantToRead.includes(book.id) ? null : (
-          <button
+          <Button
             onClick={handleAddToWantToRead}
-            className="bg-green-500 text-white rounded-lg px-3 py-2 mb-2 hover:bg-green-600"
+            className="mr-0 mb-2 phone:max-sm:mr-3 hover:bg-white hover:text-black transition"
+            variation={'secondary'}
+            rounded
           >
-            add to want to read
-            {/*read this in the future*/}
-          </button>
+            {/*adds to want to read*/}
+            <FaBookOpen className="mr-2" />
+            read for future
+          </Button>
         )}
         {bookIDs.reading.includes(book.id) ? null : (
-          <button
+          <Button
             onClick={handleAddToReading}
-            className="bg-yellow-500 text-white rounded-lg px-3 py-2 hover:bg-yellow-600"
+            className="phone:max-sm:mb-2 hover:bg-white hover:text-black transition"
+            variation={'secondary'}
+            rounded
           >
-            add to reading
-            {/*start reading*/}
-          </button>
+            <FaPlay className="mr-2" />
+            start reading
+          </Button>
         )}
       </div>
-    </li>
+    </div>
   );
 }
 

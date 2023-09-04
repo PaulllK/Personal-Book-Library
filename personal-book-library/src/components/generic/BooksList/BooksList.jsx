@@ -6,7 +6,7 @@ function BooksList({ booksToShow }) {
   });
 
   return (
-    <ul className="mt-4">
+    <div className="flex flex-col items-center mt-4">
       {renderedBooks.length ? (
         renderedBooks
       ) : (
@@ -14,7 +14,7 @@ function BooksList({ booksToShow }) {
           <p className="text-gray-500">No books here</p>
         </div>
       )}
-    </ul>
+    </div>
   );
 }
 

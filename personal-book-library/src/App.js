@@ -5,6 +5,7 @@ import CustomNavbar from './components/generic/CustomNavbar';
 import { useDispatch } from 'react-redux';
 import { useEffect } from 'react';
 import { fetchBooks } from './store';
+import PageWrapper from './components/wrapers/PageWrapper';
 
 function App() {
   const dispatch = useDispatch();
@@ -17,8 +18,22 @@ function App() {
     <BrowserRouter>
       <CustomNavbar />
       <Routes>
-        <Route path="/" element={<MainPage />} />
-        <Route path="/library" element={<LibraryPage />} />
+        <Route
+          path="/"
+          element={
+            <PageWrapper>
+              <MainPage />
+            </PageWrapper>
+          }
+        />
+        <Route
+          path="/library"
+          element={
+            <PageWrapper>
+              <LibraryPage />
+            </PageWrapper>
+          }
+        />
       </Routes>
     </BrowserRouter>
   );

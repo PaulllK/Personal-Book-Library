@@ -2,7 +2,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import { useEffect } from 'react';
 import { changeSearchTerm, fetchBooks } from '../../../store';
 
-function SearchBar() {
+function SearchBar({ isVisible }) {
   const dispatch = useDispatch();
 
   const { data, searchTerm } = useSelector((state) => {
@@ -14,12 +14,16 @@ function SearchBar() {
   };
 
   return (
-    <div className="flex items-center">
+    <div
+      className={`flex items-center absolute mt-0.5 ${
+        isVisible ? 'opacity-100 transition ease-in-out duration-300' : 'opacity-0 hidden'
+      }`}
+    >
       <div className="relative w-64">
         <input
           type="text"
           placeholder="Search for a book"
-          className="w-full bg-gray-700 text-white rounded-lg pl-12 py-2 focus:outline-none focus:ring focus:border-blue-300"
+          className="w-full bg-gray-700 text-white rounded-md shadow-2xl pl-12 py-2 focus:outline-none focus:ring focus:border-blue-300"
           value={searchTerm}
           onChange={handleSearchTermChange}
         />

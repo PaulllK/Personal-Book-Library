@@ -1,4 +1,4 @@
-import { Link } from 'react-router-dom';
+import { NavLink } from 'react-router-dom';
 
 function CustomNavbar() {
   return (
@@ -6,14 +6,14 @@ function CustomNavbar() {
       <div className="container mx-auto flex items-center justify-between">
         <ul className="flex space-x-4">
           <li>
-            <Link className="text-white hover:text-gray-300" to="/">
+            <NavLink className="text-white hover:text-gray-300" to="/">
               Main page
-            </Link>
+            </NavLink>
           </li>
           <li>
-            <Link className="text-white hover:text-gray-300" to="library">
+            <NavLink className="text-white hover:text-gray-300" activeClassName="text-blue-300" to="/library">
               Library page
-            </Link>
+            </NavLink>
           </li>
         </ul>
       </div>

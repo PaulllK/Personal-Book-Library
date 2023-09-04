@@ -25,7 +25,7 @@ function LibraryPage() {
   });
 
   return (
-    <div className="mt-4 mx-6 sm:mx-16 md:mx-24 lg:mx-32 xl:mx-56 2xl:mx-72">
+    <>
       <section className="mb-8">
         <h2 className="text-xl font-semibold mb-4">Currently Reading</h2>
         <BooksList booksToShow={readingBooks} />
@@ -38,7 +38,7 @@ function LibraryPage() {
         <h2 className="text-xl font-semibold mb-4">Finished Reading</h2>
         <BooksList booksToShow={finishedBooks} />
       </section>
-    </div>
+    </>
   );
 }
 

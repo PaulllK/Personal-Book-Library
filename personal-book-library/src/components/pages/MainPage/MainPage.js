@@ -18,9 +18,9 @@ export default function MainPage() {
   });
 
   return (
-    <div className="mt-4 mx-6 sm:mx-16 md:mx-24 lg:mx-32 xl:mx-56 2xl:mx-72">
+    <>
       <MainPageHeader />
       <BooksList booksToShow={books} />
-    </div>
+    </>
   );
 }
