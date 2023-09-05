@@ -9,6 +9,9 @@ module.exports = {
       screens: {
         phone: '500px',
       },
+      maxWidth: {
+        fitForButtons: '12rem',
+      },
     },
   },
   plugins: [],

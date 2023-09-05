@@ -10,30 +10,30 @@ const booksSlice = createSlice({
       wantToRead: [],
       finished: [],
     },
-    searchTerm: '',
+    // searchTerm: '',
     isLoading: false,
     error: null,
   },
   reducers: {
-    changeSearchTerm(state, action) {
-      state.searchTerm = action.payload;
-    },
+    // changeSearchTerm(state, action) {
+    //   state.searchTerm = action.payload;
+    // },
     changeBookIDs(state, action) {
       state.bookIDs = action.payload;
     },
   },
   extraReducers(builder) {
-    builder.addCase(fetchBooks.pending, (state, action) => {
-      state.isLoading = true;
-    });
+    // builder.addCase(fetchBooks.pending, (state, action) => {
+    //   state.isLoading = true;
+    // });
     builder.addCase(fetchBooks.fulfilled, (state, action) => {
       state.isLoading = false;
       state.data = action.payload;
     });
-    builder.addCase(fetchBooks.rejected, (state, action) => {
-      state.isLoading = false;
-      state.error = action.error;
-    });
+    // builder.addCase(fetchBooks.rejected, (state, action) => {
+    //   state.isLoading = false;
+    //   state.error = action.error;
+    // });
   },
 });
 

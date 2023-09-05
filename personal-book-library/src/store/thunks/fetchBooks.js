@@ -1,20 +1,26 @@
 import { createAsyncThunk } from '@reduxjs/toolkit';
 import axios from 'axios';
+import { useSelector } from 'react-redux';
 
-const fetchBooks = createAsyncThunk('books/fetch', async () => {
-  const response = await axios.get('http://localhost:3005/books');
+const fetchBooks = createAsyncThunk('books/fetch', async (searchTerm) => {
+  const response = await axios.get(
+    'https://www.googleapis.com/books/v1/volumes?q=' + searchTerm + '&key=AIzaSyDgYRi1MZMb2cevjcfmBOfwmKd__COKWP0'
+  );
+  //await testPause(3000);
 
-  // to be deleted after testing !!!
-  //await pause(3000);
+  if (Array.isArray(response.data.items)) {
+    return response.data.items;
+  }
 
-  return response.data;
+  // our data state should always be an array
+  return [];
 });
 
-// to be deleted after testing !!!
-const pause = async (duration) => {
-  return new Promise((resolve) => {
-    setTimeout(resolve, duration);
-  });
-};
+// // for loading spinners testing
+// const testPause = async (duration) => {
+//   return new Promise((resolve) => {
+//     setTimeout(resolve, duration);
+//   });
+// };
 
 export { fetchBooks };
