@@ -3,6 +3,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import { changeBookIDs } from '../../../store';
 import Button from '../Button';
 import { FaBookOpen, FaCheck, FaPlay } from 'react-icons/fa';
+import { Link } from 'react-router-dom';
 
 function BooksListItem({ book }) {
   const dispatch = useDispatch();
@@ -11,7 +12,7 @@ function BooksListItem({ book }) {
     book.volumeInfo.imageLinks === undefined ? '' : book.volumeInfo.imageLinks.smallThumbnail
   );
 
-  const { data, bookIDs } = useSelector((state) => {
+  const { bookIDs } = useSelector((state) => {
     return state.books;
   });
 
@@ -94,20 +95,28 @@ function BooksListItem({ book }) {
   }
 
   return (
-    <div className="flex flex-col sm:items-center w-full p-4 bg-white shadow-md mb-2 sm:flex-row sm:w-128">
-      <img
-        src={imgSrc}
-        alt={book.volumeInfo.title}
-        className="w-full sm:w-28 sm:h-36 object-cover sm:mr-4"
-        onError={() => setImgSrc('http://via.placeholder.com/105x144')}
-      />
-      <div className="flex-grow mt-4 sm:max-w-fitForButtons sm:mt-0">
-        <h2 className="text-xl font-semibold">{book.volumeInfo.title}</h2>
-        <p className="flex flex-col text-gray-600">
-          {book.volumeInfo.authors === undefined ? 'unknown authors' : book.volumeInfo.authors.join(', ')}
-          <span className="text-gray-400">{book.volumeInfo.publishedDate}</span>
-        </p>
-      </div>
+    <div className="flex flex-col sm:items-center w-full p-4 bg-white shadow-md mb-2 sm:flex-row sm:w-128 hover:shadow-2xl hover:bg-gray-200 transition">
+      <Link
+        to={`/books/${book.id}`}
+        state={book.volumeInfo}
+        className="flex flex-col flex-grow sm:flex-row sm:items-center"
+      >
+        <div className="sm:self-start">
+          <img
+            src={imgSrc}
+            alt={book.volumeInfo.title}
+            className="w-full sm:w-28 sm:h-36 object-cover sm:mr-4"
+            onError={() => setImgSrc('http://via.placeholder.com/105x144')}
+          />
+        </div>
+        <div className="mt-4 sm:max-w-fitForButtons sm:mt-0">
+          <h2 className="text-xl font-semibold">{book.volumeInfo.title}</h2>
+          <p className="flex flex-col text-gray-600">
+            {book.volumeInfo.authors === undefined ? 'unknown authors' : book.volumeInfo.authors.join(', ')}
+            <span className="text-gray-400">{book.volumeInfo.publishedDate}</span>
+          </p>
+        </div>
+      </Link>
       <div className="flex flex-col mt-4 phone:max-sm:flex-row sm:mt-0">
         {bookIDs.finished.includes(book.id) ? null : (
           <Button

@@ -6,8 +6,16 @@ import { useDispatch, useSelector } from 'react-redux';
 import { useEffect } from 'react';
 import { fetchBooks } from './store';
 import PageWrapper from './components/wrapers/PageWrapper';
+import BookPage from './components/pages/BookPage';
+import TabLibraryPage from './components/pages/TabLibraryPage';
 
 function App() {
+  const dispatch = useDispatch();
+
+  useEffect(() => {
+    dispatch(fetchBooks('programming'));
+  }, [dispatch]);
+
   return (
     <BrowserRouter>
       <CustomNavbar />
@@ -24,7 +32,15 @@ function App() {
           path="/library"
           element={
             <PageWrapper>
-              <LibraryPage />
+              <TabLibraryPage />
+            </PageWrapper>
+          }
+        />
+        <Route
+          path="/books/:bookId"
+          element={
+            <PageWrapper>
+              <BookPage />
             </PageWrapper>
           }
         />

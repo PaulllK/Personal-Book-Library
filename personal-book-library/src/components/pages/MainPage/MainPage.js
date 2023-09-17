@@ -23,13 +23,6 @@ export default function MainPage() {
     return state.books;
   });
 
-  const dispatch = useDispatch();
-
-  // render any type of books when site is opened
-  useEffect(() => {
-    dispatch(fetchBooks('programming'));
-  }, []);
-
   return (
     <>
       <MainPageHeader />

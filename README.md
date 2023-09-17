@@ -6,13 +6,7 @@
 ## 2. Install React:
 ### `npm install`
 
-## 3. Install JSON server:
-### `npm install json-server`
-
-## 4. Run JSON server:
-### `npm run start:server`
-
-## 5. Start Node server
+## 3. Start Node server
 ### `npm start`
 
 Runs the app in the development mode.\
