@@ -28,9 +28,9 @@ const TabLibraryPage = () => {
   });
 
   return (
-    <div className="container mx-auto p-4">
+    <div className="container mx-auto phone:p-4 sm:p-0">
       <div className="flex">
-        <ul className="flex w-fit">
+        <div className="flex w-full sm:w-auto">
           <TabNavigationButton
             label="Currently Reading"
             active={activeTab === 'currentlyReading'}
@@ -47,8 +47,8 @@ const TabLibraryPage = () => {
             active={activeTab === 'finishedReading'}
             onClick={() => handleTabClick('finishedReading')}
           />
-        </ul>
-        <div className="flex-grow border-b-2 border-b-gray-300"></div>
+        </div>
+        <div className="hidden sm:block flex-grow border-b-2 border-b-gray-300"></div>
       </div>
 
       <TabWrapper active={activeTab === 'currentlyReading'}>

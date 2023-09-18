@@ -8,6 +8,7 @@ module.exports = {
       },
       screens: {
         phone: '500px',
+        xxs: '380px',
       },
       maxWidth: {
         fitForButtons: '12rem',
