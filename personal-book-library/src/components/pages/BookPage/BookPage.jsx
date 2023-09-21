@@ -1,19 +1,30 @@
 import { useLocation, useParams } from 'react-router-dom';
+import { useState } from 'react';
 
 function BookPage() {
   const { bookId } = useParams();
-  const { state: { title, publishedDate, authors, description, imageLinks: { thumbnail } } = {} } = useLocation();
+  const { state } = useLocation();
+  const { title, publishedDate, authors, description } = state;
+
+  const imageLinks = state.imageLinks || {};
+  const thumbnail = imageLinks.thumbnail || undefined;
+
+  const [imgSrc, setImgSrc] = useState(thumbnail === undefined ? '' : thumbnail);
+
   const rating = 3,
     userNotes = 'Blfdads fsdf fsd fsdf sdfdsfdsf sdfsd fdsfsd fd fsdf d.';
 
   return (
     <div className="container mx-auto p-4">
       <div className="flex">
-        {/* Large book cover */}
         <div className="w-1/4">
-          <img src={thumbnail} alt={`Cover of ${title}`} className="w-full h-auto" />
+          <img
+            src={imgSrc}
+            alt={`Cover of ${title}`}
+            className="w-full h-auto"
+            onError={() => setImgSrc('http://via.placeholder.com/225x309')}
+          />
         </div>
-        {/* Book info */}
         <div className="w-3/4 pl-4">
           <h1 className="text-2xl font-semibold mb-2">{title}</h1>
           <p className="text-gray-600 text-sm">

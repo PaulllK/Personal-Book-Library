@@ -4,11 +4,14 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="50586ad5-f05e-4b41-b8ac-bb071ee8ad41" name="Changes" comment="Finished library page for desktop">
-      <change beforePath="$PROJECT_DIR$/personal-book-library/src/components/pages/TabLibraryPage/TabLibraryPage.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/personal-book-library/src/components/pages/TabLibraryPage/TabLibraryPage.jsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/personal-book-library/src/components/pages/TabLibraryPage/TabNavigationButton.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/personal-book-library/src/components/pages/TabLibraryPage/TabNavigationButton.jsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/personal-book-library/src/components/wrapers/PageWrapper/PageWrapper.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/personal-book-library/src/components/wrapers/PageWrapper/PageWrapper.jsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/personal-book-library/tailwind.config.js" beforeDir="false" afterPath="$PROJECT_DIR$/personal-book-library/tailwind.config.js" afterDir="false" />
+    <list default="true" id="50586ad5-f05e-4b41-b8ac-bb071ee8ad41" name="Changes" comment="Made library page responsive to any screen size">
+      <change afterPath="$PROJECT_DIR$/personal-book-library/src/components/generic/ReviewModal/ReviewModal.jsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/personal-book-library/src/components/generic/ReviewModal/index.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/personal-book-library/src/App.js" beforeDir="false" afterPath="$PROJECT_DIR$/personal-book-library/src/App.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/personal-book-library/src/components/generic/BooksListItem/BooksListItem.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/personal-book-library/src/components/generic/BooksListItem/BooksListItem.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/personal-book-library/src/components/generic/Button/Button.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/personal-book-library/src/components/generic/Button/Button.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/personal-book-library/src/components/pages/BookPage/BookPage.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/personal-book-library/src/components/pages/BookPage/BookPage.jsx" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -101,7 +104,11 @@
       <workItem from="1694977455005" duration="482000" />
       <workItem from="1694977964587" duration="2683000" />
       <workItem from="1694982350381" duration="1449000" />
-      <workItem from="1695057882559" duration="3007000" />
+      <workItem from="1695057882559" duration="3881000" />
+      <workItem from="1695065128053" duration="785000" />
+      <workItem from="1695140631432" duration="6448000" />
+      <workItem from="1695320156786" duration="4241000" />
+      <workItem from="1695333657663" duration="3534000" />
     </task>
     <task id="LOCAL-00001" summary="1.Changed layout to be responsive for different screen sizes;&#10;2.Made book cards smaller in width.&#10;3.Enabled the user to toggle the SearchBar's visibility.">
       <option name="closed" value="true" />
@@ -127,7 +134,15 @@
       <option name="project" value="LOCAL" />
       <updated>1694977864612</updated>
     </task>
-    <option name="localTasksCounter" value="4" />
+    <task id="LOCAL-00004" summary="Made library page responsive to any screen size">
+      <option name="closed" value="true" />
+      <created>1695062770094</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1695062770094</updated>
+    </task>
+    <option name="localTasksCounter" value="5" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -148,6 +163,7 @@
     <MESSAGE value="1.Changed layout to be responsive for different screen sizes;&#10;2.Made book cards smaller in width.&#10;3.Enabled the user to toggle the SearchBar's visibility." />
     <MESSAGE value="Integrated the app with Google Books API. JSON server is not used anymore." />
     <MESSAGE value="Finished library page for desktop" />
-    <option name="LAST_COMMIT_MESSAGE" value="Finished library page for desktop" />
+    <MESSAGE value="Made library page responsive to any screen size" />
+    <option name="LAST_COMMIT_MESSAGE" value="Made library page responsive to any screen size" />
   </component>
 </project>

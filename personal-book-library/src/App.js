@@ -12,6 +12,7 @@ import TabLibraryPage from './components/pages/TabLibraryPage';
 function App() {
   const dispatch = useDispatch();
 
+  // when the website is running, programming books are rendered initially
   useEffect(() => {
     dispatch(fetchBooks('programming'));
   }, [dispatch]);

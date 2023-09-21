@@ -4,6 +4,7 @@ import { changeBookIDs } from '../../../store';
 import Button from '../Button';
 import { FaBookOpen, FaCheck, FaPlay } from 'react-icons/fa';
 import { Link } from 'react-router-dom';
+import ReviewModal from '../ReviewModal';
 
 function BooksListItem({ book }) {
   const dispatch = useDispatch();
@@ -12,11 +13,23 @@ function BooksListItem({ book }) {
     book.volumeInfo.imageLinks === undefined ? '' : book.volumeInfo.imageLinks.smallThumbnail
   );
 
+  const [showReview, setShowReview] = useState(false);
+
+  const handleClick = () => {
+    setShowReview(true);
+  };
+
+  const handleClose = () => {
+    setShowReview(false);
+  };
+
   const { bookIDs } = useSelector((state) => {
     return state.books;
   });
 
   function handleAddToFinished() {
+    handleClick();
+
     //clone old object
     const newIDsObject = JSON.parse(JSON.stringify(bookIDs));
 
@@ -143,17 +156,13 @@ function BooksListItem({ book }) {
           </Button>
         )}
         {bookIDs.reading.includes(book.id) ? null : (
-          <Button
-            onClick={handleAddToReading}
-            className="phone:max-sm:mb-2 hover:bg-white hover:text-black transition"
-            variation={'secondary'}
-            rounded
-          >
+          <Button onClick={handleAddToReading} className="phone:max-sm:mb-2" variation={'secondary'} rounded>
             <FaPlay className="mr-2" />
             start reading
           </Button>
         )}
       </div>
+      {showReview && <ReviewModal onClose={handleClose} />}
     </div>
   );
 }
