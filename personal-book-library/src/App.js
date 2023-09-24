@@ -1,8 +1,8 @@
 import MainPage from './components/pages/MainPage';
-import { BrowserRouter, Link, Route, Routes } from 'react-router-dom';
+import { BrowserRouter, Route, Routes } from 'react-router-dom';
 import LibraryPage from './components/pages/LibraryPage';
 import CustomNavbar from './components/generic/CustomNavbar';
-import { useDispatch, useSelector } from 'react-redux';
+import { useDispatch } from 'react-redux';
 import { useEffect } from 'react';
 import { fetchBooks } from './store';
 import PageWrapper from './components/wrapers/PageWrapper';
@@ -12,7 +12,7 @@ import TabLibraryPage from './components/pages/TabLibraryPage';
 function App() {
   const dispatch = useDispatch();
 
-  // when the website is running, programming books are rendered initially
+  // when the website is running, programming books are initially rendered
   useEffect(() => {
     dispatch(fetchBooks('programming'));
   }, [dispatch]);

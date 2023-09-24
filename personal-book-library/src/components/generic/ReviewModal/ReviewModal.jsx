@@ -1,5 +1,8 @@
 import React, { useEffect, useState } from 'react';
 import Button from '../Button';
+import { setShowReviewModal } from '../../../store';
+import { useDispatch } from 'react-redux';
+import ReactDOM from 'react-dom';
 
 const ReviewModal = ({ onClose }) => {
   useEffect(() => {
@@ -9,6 +12,8 @@ const ReviewModal = ({ onClose }) => {
       document.body.classList.remove('overflow-hidden');
     };
   }, []);
+
+  const dispatch = useDispatch();
 
   const [ratingIndex, setRatingIndex] = useState(0);
   const [hoveredIndex, setHoveredIndex] = useState(0);
@@ -22,9 +27,17 @@ const ReviewModal = ({ onClose }) => {
     setReview(event.target.value);
   };
 
-  return (
+  const handleModalClosing = () => {
+    onClose();
+  };
+
+  const handleReviewSending = () => {
+    handleModalClosing();
+  };
+
+  return ReactDOM.createPortal(
     <div>
-      <div onClick={onClose} className="fixed inset-0 bg-gray-300 opacity-80"></div>
+      <div onClick={handleModalClosing} className="fixed inset-0 bg-gray-300 opacity-80"></div>
       <div className="fixed max-w-xl top-40 bottom-40 m-auto left-5 right-5 xxs:left-20 xxs:right-20 sm:inset-40 h-fit p-10 bg-white border rounded-lg shadow-2xl">
         <div className="flex flex-col align-middle justify-between">
           <div className="flex flex-col mb-4">
@@ -60,12 +73,13 @@ const ReviewModal = ({ onClose }) => {
               onChange={handleReviewChange}
             ></textarea>
           </div>
-          <Button className="mx-auto w-full phone:w-48" variation={'secondary'} rounded>
+          <Button onClick={handleReviewSending} className="mx-auto w-full phone:w-48" variation={'secondary'} rounded>
             Send
           </Button>
         </div>
       </div>
-    </div>
+    </div>,
+    document.querySelector('.modal-container')
   );
 };
 

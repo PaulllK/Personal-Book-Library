@@ -33,6 +33,6 @@ const booksSlice = createSlice({
   },
 });
 
-export const { changeSearchTerm, changeBookIDs } = booksSlice.actions;
+export const { changeBookIDs } = booksSlice.actions;
 
 export const booksReducer = booksSlice.reducer;

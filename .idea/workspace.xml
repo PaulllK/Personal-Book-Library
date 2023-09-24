@@ -4,14 +4,17 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="50586ad5-f05e-4b41-b8ac-bb071ee8ad41" name="Changes" comment="Made library page responsive to any screen size">
-      <change afterPath="$PROJECT_DIR$/personal-book-library/src/components/generic/ReviewModal/ReviewModal.jsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/personal-book-library/src/components/generic/ReviewModal/index.js" afterDir="false" />
+    <list default="true" id="50586ad5-f05e-4b41-b8ac-bb071ee8ad41" name="Changes" comment="Finished the ReviewModal component design for all screen devices.">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/personal-book-library/public/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/personal-book-library/public/index.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/personal-book-library/src/App.js" beforeDir="false" afterPath="$PROJECT_DIR$/personal-book-library/src/App.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/personal-book-library/src/components/generic/BooksListItem/BooksListItem.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/personal-book-library/src/components/generic/BooksListItem/BooksListItem.jsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/personal-book-library/src/components/generic/Button/Button.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/personal-book-library/src/components/generic/Button/Button.jsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/personal-book-library/src/components/pages/BookPage/BookPage.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/personal-book-library/src/components/pages/BookPage/BookPage.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/personal-book-library/src/components/generic/ReviewModal/ReviewModal.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/personal-book-library/src/components/generic/ReviewModal/ReviewModal.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/personal-book-library/src/components/generic/SearchBar/SearchBar.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/personal-book-library/src/components/generic/SearchBar/SearchBar.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/personal-book-library/src/components/pages/MainPage/MainPage.js" beforeDir="false" afterPath="$PROJECT_DIR$/personal-book-library/src/components/pages/MainPage/MainPage.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/personal-book-library/src/components/pages/TabLibraryPage/TabLibraryPage.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/personal-book-library/src/components/pages/TabLibraryPage/TabLibraryPage.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/personal-book-library/src/store/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/personal-book-library/src/store/index.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/personal-book-library/src/store/slices/booksSlice.js" beforeDir="false" afterPath="$PROJECT_DIR$/personal-book-library/src/store/slices/booksSlice.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -67,7 +70,7 @@
     &quot;node.js.selected.package.standard&quot;: &quot;&quot;,
     &quot;node.js.selected.package.tslint&quot;: &quot;D:\\personal-projects\\Personal-Book-Library\\personal-book-library&quot;,
     &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
-    &quot;settings.editor.selected.configurable&quot;: &quot;settings.javascript.linters.tslint&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;actions.on.save&quot;,
     &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   }
 }</component>
@@ -108,7 +111,11 @@
       <workItem from="1695065128053" duration="785000" />
       <workItem from="1695140631432" duration="6448000" />
       <workItem from="1695320156786" duration="4241000" />
-      <workItem from="1695333657663" duration="3534000" />
+      <workItem from="1695333657663" duration="6220000" />
+      <workItem from="1695395349395" duration="5738000" />
+      <workItem from="1695568016407" duration="5950000" />
+      <workItem from="1695574098444" duration="1393000" />
+      <workItem from="1695592388064" duration="3213000" />
     </task>
     <task id="LOCAL-00001" summary="1.Changed layout to be responsive for different screen sizes;&#10;2.Made book cards smaller in width.&#10;3.Enabled the user to toggle the SearchBar's visibility.">
       <option name="closed" value="true" />
@@ -142,7 +149,15 @@
       <option name="project" value="LOCAL" />
       <updated>1695062770094</updated>
     </task>
-    <option name="localTasksCounter" value="5" />
+    <task id="LOCAL-00005" summary="Finished the ReviewModal component design for all screen devices.">
+      <option name="closed" value="true" />
+      <created>1695337514393</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1695337514393</updated>
+    </task>
+    <option name="localTasksCounter" value="6" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -164,6 +179,7 @@
     <MESSAGE value="Integrated the app with Google Books API. JSON server is not used anymore." />
     <MESSAGE value="Finished library page for desktop" />
     <MESSAGE value="Made library page responsive to any screen size" />
-    <option name="LAST_COMMIT_MESSAGE" value="Made library page responsive to any screen size" />
+    <MESSAGE value="Finished the ReviewModal component design for all screen devices." />
+    <option name="LAST_COMMIT_MESSAGE" value="Finished the ReviewModal component design for all screen devices." />
   </component>
 </project>

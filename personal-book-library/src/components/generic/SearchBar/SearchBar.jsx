@@ -1,6 +1,6 @@
 import { useDispatch, useSelector } from 'react-redux';
 import { useEffect, useState } from 'react';
-import { changeSearchTerm, fetchBooks } from '../../../store';
+import { fetchBooks } from '../../../store';
 
 function SearchBar({ isVisible }) {
   const dispatch = useDispatch();

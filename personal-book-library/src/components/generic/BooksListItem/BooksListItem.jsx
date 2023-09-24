@@ -13,22 +13,30 @@ function BooksListItem({ book }) {
     book.volumeInfo.imageLinks === undefined ? '' : book.volumeInfo.imageLinks.smallThumbnail
   );
 
-  const [showReview, setShowReview] = useState(false);
+  const [showReviewModal, setShowReviewModal] = useState(false);
 
-  const handleClick = () => {
-    setShowReview(true);
+  const handleShowReview = async () => {
+    setShowReviewModal(true);
   };
 
-  const handleClose = () => {
-    setShowReview(false);
+  const handleModalClosing = () => {
+    setShowReviewModal(false);
   };
 
   const { bookIDs } = useSelector((state) => {
     return state.books;
   });
 
-  function handleAddToFinished() {
-    handleClick();
+  const pause = async (duration) => {
+    return new Promise((resolve) => {
+      setTimeout(resolve, duration);
+    });
+  };
+
+  async function handleAddToFinished() {
+    handleShowReview();
+
+    // await pause(1000);
 
     //clone old object
     const newIDsObject = JSON.parse(JSON.stringify(bookIDs));
@@ -108,7 +116,7 @@ function BooksListItem({ book }) {
   }
 
   return (
-    <div className="flex flex-col sm:items-center w-full p-4 bg-white shadow-md mb-2 sm:flex-row sm:w-128 hover:shadow-2xl hover:bg-gray-200 transition">
+    <div className="flex flex-col sm:items-center w-full phone:max-sm:w-[28rem] sm:w-128 p-4 bg-white shadow-md mb-2 sm:flex-row  hover:shadow-2xl hover:bg-gray-200 transition">
       <Link
         to={`/books/${book.id}`}
         state={book.volumeInfo}
@@ -118,7 +126,7 @@ function BooksListItem({ book }) {
           <img
             src={imgSrc}
             alt={book.volumeInfo.title}
-            className="w-full sm:w-28 sm:h-36 object-cover sm:mr-4"
+            className="w-full phone:w-2/3 phone:max-sm:mx-auto sm:w-28 sm:h-36 sm:mr-4"
             onError={() => setImgSrc('http://via.placeholder.com/105x144')}
           />
         </div>
@@ -162,7 +170,7 @@ function BooksListItem({ book }) {
           </Button>
         )}
       </div>
-      {showReview && <ReviewModal onClose={handleClose} />}
+      {showReviewModal && <ReviewModal onClose={handleModalClosing} />}
     </div>
   );
 }

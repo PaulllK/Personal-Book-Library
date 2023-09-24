@@ -5,7 +5,11 @@ import { useSelector } from 'react-redux';
 import TabWrapper from './TabWrapper';
 
 const TabLibraryPage = () => {
-  const [activeTab, setActiveTab] = useState('currentlyReading');
+  const CURRENTLY_READING = 'currentlyReading';
+  const WANT_TO_READ = 'wantToRead';
+  const FINISHED_READING = 'finishedReading';
+
+  const [activeTab, setActiveTab] = useState(CURRENTLY_READING);
 
   const handleTabClick = (tab) => {
     setActiveTab(tab);
@@ -33,33 +37,33 @@ const TabLibraryPage = () => {
         <div className="flex w-full sm:w-auto">
           <TabNavigationButton
             label="Currently Reading"
-            active={activeTab === 'currentlyReading'}
-            onClick={() => handleTabClick('currentlyReading')}
+            active={activeTab === CURRENTLY_READING}
+            onClick={() => handleTabClick(CURRENTLY_READING)}
             className="border-l-2 border-l-gray-300"
           />
           <TabNavigationButton
             label="Want to Read"
-            active={activeTab === 'wantToRead'}
-            onClick={() => handleTabClick('wantToRead')}
+            active={activeTab === WANT_TO_READ}
+            onClick={() => handleTabClick(WANT_TO_READ)}
           />
           <TabNavigationButton
             label="Finished Reading"
-            active={activeTab === 'finishedReading'}
-            onClick={() => handleTabClick('finishedReading')}
+            active={activeTab === FINISHED_READING}
+            onClick={() => handleTabClick(FINISHED_READING)}
           />
         </div>
         <div className="hidden sm:block flex-grow border-b-2 border-b-gray-300"></div>
       </div>
 
-      <TabWrapper active={activeTab === 'currentlyReading'}>
+      <TabWrapper active={activeTab === CURRENTLY_READING}>
         <BooksList booksToShow={readingBooks} />
       </TabWrapper>
 
-      <TabWrapper active={activeTab === 'wantToRead'}>
+      <TabWrapper active={activeTab === WANT_TO_READ}>
         <BooksList booksToShow={wantToReadBooks} />
       </TabWrapper>
 
-      <TabWrapper active={activeTab === 'finishedReading'}>
+      <TabWrapper active={activeTab === FINISHED_READING}>
         <BooksList booksToShow={finishedBooks} />
       </TabWrapper>
     </div>
