@@ -1,8 +1,17 @@
 import { useDispatch, useSelector } from 'react-redux';
-import { useEffect, useState } from 'react';
+import { useEffect, useRef, useState } from 'react';
 import { fetchBooks } from '../../../store';
 
 function SearchBar({ isVisible }) {
+  const inputRef = useRef(null);
+
+  useEffect(() => {
+    // autofocus search input when opened
+    if (isVisible) {
+      inputRef.current.focus();
+    }
+  }, [isVisible]);
+
   const dispatch = useDispatch();
 
   // const { data } = useSelector((state) => {
@@ -28,6 +37,7 @@ function SearchBar({ isVisible }) {
     >
       <form className="relative w-64" onSubmit={handleSubmit}>
         <input
+          ref={inputRef}
           type="text"
           placeholder="Search for a book"
           className="w-full bg-gray-700 text-white rounded-md shadow-2xl pl-12 py-2 focus:outline-none focus:ring focus:border-blue-300"

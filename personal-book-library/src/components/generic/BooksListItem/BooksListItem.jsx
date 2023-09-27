@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { changeBookIDs } from '../../../store';
 import Button from '../Button';
@@ -15,29 +15,25 @@ function BooksListItem({ book }) {
 
   const [showReviewModal, setShowReviewModal] = useState(false);
 
-  const handleShowReview = async () => {
+  const handleShowReview = () => {
     setShowReviewModal(true);
   };
 
   const handleModalClosing = () => {
     setShowReviewModal(false);
+    handleAddToFinished();
   };
+
+  // ratings = {
+  //   dfds: [{bookRating, bookReview, user}, {}],
+  //   dsfds: [{}, {}],
+  // };
 
   const { bookIDs } = useSelector((state) => {
     return state.books;
   });
 
-  const pause = async (duration) => {
-    return new Promise((resolve) => {
-      setTimeout(resolve, duration);
-    });
-  };
-
-  async function handleAddToFinished() {
-    handleShowReview();
-
-    // await pause(1000);
-
+  function handleAddToFinished() {
     //clone old object
     const newIDsObject = JSON.parse(JSON.stringify(bookIDs));
 
@@ -141,7 +137,7 @@ function BooksListItem({ book }) {
       <div className="flex flex-col mt-4 phone:max-sm:flex-row sm:mt-0">
         {bookIDs.finished.includes(book.id) ? null : (
           <Button
-            onClick={handleAddToFinished}
+            onClick={handleShowReview}
             className="mr-0 mb-2 phone:max-sm:mr-3 hover:bg-white hover:text-black transition"
             variation={'secondary'}
             rounded
@@ -170,7 +166,7 @@ function BooksListItem({ book }) {
           </Button>
         )}
       </div>
-      {showReviewModal && <ReviewModal onClose={handleModalClosing} />}
+      {showReviewModal && <ReviewModal onClose={handleModalClosing} data={{ bookID: book.id }} />}
     </div>
   );
 }

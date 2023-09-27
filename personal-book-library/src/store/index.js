@@ -1,5 +1,5 @@
 import { booksReducer } from './slices/booksSlice';
-import { changeBookIDs } from './slices/booksSlice';
+import { changeBookIDs, changeRatings } from './slices/booksSlice';
 import { configureStore } from '@reduxjs/toolkit';
 import { setupListeners } from '@reduxjs/toolkit/query';
 
@@ -11,5 +11,5 @@ export const store = configureStore({
 
 setupListeners(store.dispatch);
 
-export { changeBookIDs };
+export { changeBookIDs, changeRatings };
 export * from './thunks/fetchBooks';

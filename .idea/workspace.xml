@@ -4,15 +4,15 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="50586ad5-f05e-4b41-b8ac-bb071ee8ad41" name="Changes" comment="Finished the ReviewModal component design for all screen devices.">
+    <list default="true" id="50586ad5-f05e-4b41-b8ac-bb071ee8ad41" name="Changes" comment="Updated responsive design for mobile and moved ReviewModal show state from context to BookListItem">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/personal-book-library/public/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/personal-book-library/public/index.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/personal-book-library/src/App.js" beforeDir="false" afterPath="$PROJECT_DIR$/personal-book-library/src/App.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/personal-book-library/src/components/generic/BooksListItem/BooksListItem.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/personal-book-library/src/components/generic/BooksListItem/BooksListItem.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/personal-book-library/src/components/generic/MainPageHeader/MainPageHeader.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/personal-book-library/src/components/generic/MainPageHeader/MainPageHeader.jsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/personal-book-library/src/components/generic/ReviewModal/ReviewModal.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/personal-book-library/src/components/generic/ReviewModal/ReviewModal.jsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/personal-book-library/src/components/generic/SearchBar/SearchBar.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/personal-book-library/src/components/generic/SearchBar/SearchBar.jsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/personal-book-library/src/components/pages/MainPage/MainPage.js" beforeDir="false" afterPath="$PROJECT_DIR$/personal-book-library/src/components/pages/MainPage/MainPage.jsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/personal-book-library/src/components/pages/TabLibraryPage/TabLibraryPage.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/personal-book-library/src/components/pages/TabLibraryPage/TabLibraryPage.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/personal-book-library/src/components/pages/BookPage/BookPage.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/personal-book-library/src/components/pages/BookPage/BookPage.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/personal-book-library/src/index.css" beforeDir="false" afterPath="$PROJECT_DIR$/personal-book-library/src/index.css" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/personal-book-library/src/store/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/personal-book-library/src/store/index.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/personal-book-library/src/store/slices/booksSlice.js" beforeDir="false" afterPath="$PROJECT_DIR$/personal-book-library/src/store/slices/booksSlice.js" afterDir="false" />
     </list>
@@ -56,24 +56,25 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
-    &quot;git-widget-placeholder&quot;: &quot;main&quot;,
-    &quot;last_opened_file_path&quot;: &quot;D:/personal-projects/Personal-Book-Library/personal-book-library/.eslintrc.json&quot;,
-    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
-    &quot;node.js.detected.package.standard&quot;: &quot;true&quot;,
-    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
-    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
-    &quot;node.js.selected.package.standard&quot;: &quot;&quot;,
-    &quot;node.js.selected.package.tslint&quot;: &quot;D:\\personal-projects\\Personal-Book-Library\\personal-book-library&quot;,
-    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
-    &quot;settings.editor.selected.configurable&quot;: &quot;actions.on.save&quot;,
-    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "RunOnceActivity.OpenProjectViewOnStart": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "WebServerToolWindowFactoryState": "false",
+    "git-widget-placeholder": "main",
+    "last_opened_file_path": "D:/personal-projects/Personal-Book-Library/personal-book-library/.eslintrc.json",
+    "node.js.detected.package.eslint": "true",
+    "node.js.detected.package.standard": "true",
+    "node.js.detected.package.tslint": "true",
+    "node.js.selected.package.eslint": "(autodetect)",
+    "node.js.selected.package.standard": "",
+    "node.js.selected.package.tslint": "D:\\personal-projects\\Personal-Book-Library\\personal-book-library",
+    "nodejs_package_manager_path": "npm",
+    "settings.editor.selected.configurable": "settings.javascript.linters.eslint",
+    "ts.external.directory.path": "C:\\Program Files\\JetBrains\\WebStorm 2023.2.1\\plugins\\javascript-impl\\jsLanguageServicesImpl\\external",
+    "vue.rearranger.settings.migration": "true"
   }
-}</component>
+}]]></component>
   <component name="RecentsManager">
     <key name="MoveFile.RECENT_KEYS">
       <recent name="D:\personal-projects\Personal-Book-Library\personal-book-library\src\components\generic\Button" />
@@ -115,7 +116,13 @@
       <workItem from="1695395349395" duration="5738000" />
       <workItem from="1695568016407" duration="5950000" />
       <workItem from="1695574098444" duration="1393000" />
-      <workItem from="1695592388064" duration="3213000" />
+      <workItem from="1695592388064" duration="7565000" />
+      <workItem from="1695640937920" duration="2031000" />
+      <workItem from="1695741371894" duration="1667000" />
+      <workItem from="1695743216125" duration="5449000" />
+      <workItem from="1695760637014" duration="9426000" />
+      <workItem from="1695771310871" duration="123000" />
+      <workItem from="1695822744233" duration="9452000" />
     </task>
     <task id="LOCAL-00001" summary="1.Changed layout to be responsive for different screen sizes;&#10;2.Made book cards smaller in width.&#10;3.Enabled the user to toggle the SearchBar's visibility.">
       <option name="closed" value="true" />
@@ -157,7 +164,15 @@
       <option name="project" value="LOCAL" />
       <updated>1695337514393</updated>
     </task>
-    <option name="localTasksCounter" value="6" />
+    <task id="LOCAL-00006" summary="Updated responsive design for mobile and moved ReviewModal show state from context to BookListItem">
+      <option name="closed" value="true" />
+      <created>1695595887956</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1695595887956</updated>
+    </task>
+    <option name="localTasksCounter" value="7" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -180,6 +195,8 @@
     <MESSAGE value="Finished library page for desktop" />
     <MESSAGE value="Made library page responsive to any screen size" />
     <MESSAGE value="Finished the ReviewModal component design for all screen devices." />
-    <option name="LAST_COMMIT_MESSAGE" value="Finished the ReviewModal component design for all screen devices." />
+    <MESSAGE value="Updated responsive design for mobile" />
+    <MESSAGE value="Updated responsive design for mobile and moved ReviewModal show state from context to BookListItem" />
+    <option name="LAST_COMMIT_MESSAGE" value="Updated responsive design for mobile and moved ReviewModal show state from context to BookListItem" />
   </component>
 </project>

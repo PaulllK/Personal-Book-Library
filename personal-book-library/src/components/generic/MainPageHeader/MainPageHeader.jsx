@@ -1,6 +1,7 @@
 import SearchBar from '../SearchBar';
 import { LuSearch } from 'react-icons/lu';
-import { useState } from 'react';
+import { useEffect, useRef, useState } from 'react';
+import { useSelector } from 'react-redux';
 
 function MainPageHeader() {
   const [isVisible, setIsVisible] = useState(false);
@@ -8,6 +9,10 @@ function MainPageHeader() {
   const toggleSearchBar = () => {
     setIsVisible(!isVisible);
   };
+
+  const { loggedInUser } = useSelector((state) => {
+    return state.books;
+  });
 
   return (
     <header>
@@ -23,7 +28,7 @@ function MainPageHeader() {
             <LuSearch />
           </button>
           <div className="flex items-center">
-            <p className="mr-4">Mark Zuckerberg Doe</p>
+            <p className="mr-4">{loggedInUser}</p>
             <img
               src="https://www.kindpng.com/picc/m/616-6169709_library-logo-of-a-person-holding-a-book.png"
               alt="Profile"

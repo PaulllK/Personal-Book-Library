@@ -3,5 +3,5 @@
 @tailwind utilities;
 
 nav .active {
-    @apply bg-slate-700
+    @apply border-b-4 border-b-gray-400 border-opacity-40
 }

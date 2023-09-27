@@ -1,10 +1,19 @@
 import React, { useEffect, useState } from 'react';
 import Button from '../Button';
-import { setShowReviewModal } from '../../../store';
-import { useDispatch } from 'react-redux';
+import { changeRatings, setShowReviewModal } from '../../../store';
+import { useDispatch, useSelector } from 'react-redux';
 import ReactDOM from 'react-dom';
+import PropTypes from 'prop-types';
 
-const ReviewModal = ({ onClose }) => {
+ReviewModal.propTypes = {
+  onClose: PropTypes.func.isRequired,
+  data: PropTypes.shape({
+    bookID: PropTypes.string.isRequired,
+    bookTitle: PropTypes.string,
+  }),
+};
+
+function ReviewModal({ onClose, data }) {
   useEffect(() => {
     document.body.classList.add('overflow-hidden');
 
@@ -19,6 +28,19 @@ const ReviewModal = ({ onClose }) => {
   const [hoveredIndex, setHoveredIndex] = useState(0);
   const [review, setReview] = useState('');
 
+  // get a copy of ratings context state object
+  const ratings = JSON.parse(
+    JSON.stringify(
+      useSelector((state) => {
+        return state.books.ratings;
+      })
+    )
+  );
+
+  const { loggedInUser } = useSelector((state) => {
+    return state.books;
+  });
+
   const handleRatingChange = (newRatingIndex) => {
     setRatingIndex(newRatingIndex);
   };
@@ -32,7 +54,17 @@ const ReviewModal = ({ onClose }) => {
   };
 
   const handleReviewSending = () => {
-    handleModalClosing();
+    if (ratingIndex > 0 && review.trim().length > 0) {
+      if (!Object.hasOwn(ratings, data.bookID)) {
+        ratings[data.bookID] = [];
+      }
+
+      ratings[data.bookID].push({ bookRating: ratingIndex, bookReview: review, user: loggedInUser });
+
+      dispatch(changeRatings(ratings));
+
+      handleModalClosing();
+    }
   };
 
   return ReactDOM.createPortal(
@@ -81,6 +113,6 @@ const ReviewModal = ({ onClose }) => {
     </div>,
     document.querySelector('.modal-container')
   );
-};
+}
 
 export default ReviewModal;

@@ -1,6 +1,9 @@
 import { createSlice } from '@reduxjs/toolkit';
 import { fetchBooks } from '../thunks/fetchBooks';
 
+const mockUsers = ['John Doe', 'Mark Zuckerberg', 'Mike Tyson', 'Elon Musk', 'Andrew Tate', 'Margot Robbie'];
+const randomIndex = Math.floor(Math.random() * mockUsers.length);
+
 const booksSlice = createSlice({
   name: 'books',
   initialState: {
@@ -12,10 +15,15 @@ const booksSlice = createSlice({
     },
     isLoading: false,
     error: null,
+    ratings: localStorage.getItem('ratings') === null ? {} : JSON.parse(localStorage.getItem('ratings')),
+    loggedInUser: mockUsers[randomIndex],
   },
   reducers: {
     changeBookIDs(state, action) {
       state.bookIDs = action.payload;
+    },
+    changeRatings(state, action) {
+      state.ratings = action.payload;
     },
   },
   extraReducers(builder) {
@@ -33,6 +41,6 @@ const booksSlice = createSlice({
   },
 });
 
-export const { changeBookIDs } = booksSlice.actions;
+export const { changeBookIDs, changeRatings } = booksSlice.actions;
 
 export const booksReducer = booksSlice.reducer;
