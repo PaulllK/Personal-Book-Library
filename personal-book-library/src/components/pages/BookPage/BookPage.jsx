@@ -24,22 +24,22 @@ function BookPage() {
 
   return (
     <div className="container mx-auto p-4">
-      <div className="flex">
-        <div className="w-1/4">
+      <div className="flex flex-col phone:flex-row">
+        <div className="w-full phone:w-1/2 sm:w-1/4 phone:min-w-[12rem] mx-auto mb-4 phone:mb-0 sm:mx-0">
           <img
             src={imgSrc}
             alt={`Cover of ${title}`}
-            className="w-full h-auto"
+            className="w-full"
             onError={() => setImgSrc('http://via.placeholder.com/225x309')}
           />
         </div>
-        <div className="w-3/4 pl-4">
+        <div className="w-auto phone:pl-4">
           <h1 className="text-2xl font-semibold mb-2">{title}</h1>
-          <p className="text-gray-600 text-sm">
-            {authors === undefined ? 'unknown authors' : authors.join(', ')}{' '}
-            {publishedDate === undefined ? '' : '| ' + publishedDate}
+          <p className="flex flex-col text-gray-600 text-sm">
+            {authors === undefined ? 'unknown authors' : authors.join(', ')}
+            <span className="text-gray-400">{publishedDate}</span>
           </p>
-          <div className="flex items-center mt-2">
+          <div className="flex flex-col xxs:flex-row xxs:items-center mt-2">
             <div className="flex select-none">
               {Array.from({ length: 5 }, (_, index) => (
                 <div
@@ -50,7 +50,7 @@ function BookPage() {
                 </div>
               ))}
             </div>
-            <div className="ml-2 text-gray-500 text-sm">{reviewsForThisBook.length} review(s)</div>
+            <div className="xxs:ml-2 text-gray-500 text-sm">{reviewsForThisBook.length} review(s)</div>
           </div>
         </div>
       </div>
