@@ -1,12 +1,9 @@
 # Project Configuration and Running
 
-## 1. Go in the project's root directory:
-### `cd .\personal-book-library\`
-
-## 2. Install React:
+## 1. Install React and dependencies:
 ### `npm install`
 
-## 3. Start Node server
+## 2. Start Node server
 ### `npm start`
 
 Runs the app in the development mode.\
